@@ -16,7 +16,7 @@ const Navbar=()=> {
           <Link to="/donate" className="text-white hover:text-red-700">Donate</Link>
         </li>
         <li className="item">
-          <a href="contact.html" className="text-white hover:text-red-700">Contact Us</a>
+          <Link to="/contact" className="text-white hover:text-red-700">Contact Us</Link>
         </li>
         <li className="item">
           <Link to="/about" className="text-white hover:text-red-700">About Us</Link>
@@ -25,7 +25,7 @@ const Navbar=()=> {
           <Link to="/Signup" className="text-white hover:text-red-700">Signup</Link>
         </li>
         <li className="item">
-          <a href="registration.html" className="text-white hover:text-red-700">Login</a>
+          <Link to="/login" className="text-white hover:text-red-700">Login</Link>
         </li>
       </ul>
     </nav>

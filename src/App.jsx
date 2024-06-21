@@ -8,6 +8,10 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Donate from './components/Donate';
 
+import Login from './components/Login';
+
+import Contact from './components/Contact';
+
 import { BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 
 
@@ -30,6 +34,10 @@ const App = () => {
 <Route path = "/Signup" element={<Signup/>}/>
 
 <Route path ="/donate" element={<Donate/>}/>
+
+<Route path="/login" element={<Login/>}/>
+
+<Route path="/contact" element={<Contact/>}/>
 
 
 

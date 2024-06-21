@@ -8,10 +8,10 @@ function Donate() {
             <div className="w-full max-w-xl bg-gray-800 p-6 rounded-lg shadow-xl">
                 <h1 className="text-xl font-semibold text-white text-center mb-6">Blood Donation</h1>
                 <form action="login.php" method="post" className="space-y-6">
-                    <div className="flex flex-wrap justify-between">
+                    <div className="flex flex-wrap justify-evenly ">
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="name" className="block text-white font-medium">First Name</label>
-                            <input type="text" id="name" name="firstname" placeholder="Enter Your Name" className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"/>
+                            <input type="text" id="name" name="firstname" placeholder="Enter Your Name" className="w-[250px] p-2 rounded bg-gray-700 text-white border border-gray-600"/>
                         </div>
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="lastname" className="block text-white font-medium">Last Name</label>
@@ -19,7 +19,7 @@ function Donate() {
                         </div>
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="email" className="block text-white font-medium">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Enter email" className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"/>
+                            <input type="email" id="email" name="email" placeholder="Enter email" className="w-[250px] p-2 rounded bg-gray-700 text-white border border-gray-600"/>
                         </div>
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="phonenumber" className="block text-white font-medium">Phone Number</label>
@@ -41,7 +41,7 @@ function Donate() {
                         </div>
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="weight" className="block text-white font-medium">Weight</label>
-                            <input type="text" id="weight" name="weight" placeholder="Enter your weight" className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"/>
+                            <input type="text" id="weight" name="weight" placeholder="Enter your weight" className="w-[250px] p-2 rounded bg-gray-700 text-white border border-gray-600"/>
                         </div>
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="date" className="block text-white font-medium">Date</label>
@@ -49,7 +49,7 @@ function Donate() {
                         </div>
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="birthdate" className="block text-white font-medium">Date of Birth</label>
-                            <input type="date" id="birthdate" name="birthdate" className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"/>
+                            <input type="date" id="birthdate" name="birthdate" className="w-[250px] p-2 rounded bg-gray-700 text-white border border-gray-600"/>
                         </div>
                         <div className="w-full md:w-1/2 mb-4">
                             <label htmlFor="city" className="block text-white font-medium">City</label>
