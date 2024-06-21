@@ -13,7 +13,7 @@ const Navbar=()=> {
           <Link to="/" className="text-white hover:text-red-700">Home</Link>
         </li>
         <li className="item">
-          <Link to="/about" className="text-white hover:text-red-700">Donate</Link>
+          <Link to="/donate" className="text-white hover:text-red-700">Donate</Link>
         </li>
         <li className="item">
           <a href="contact.html" className="text-white hover:text-red-700">Contact Us</a>

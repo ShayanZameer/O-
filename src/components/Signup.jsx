@@ -2,7 +2,7 @@ import React from 'react';
 
 function Signup() {
   return (
-    <div className="flex h-screen justify-center items-center bg-black">
+    <div className="flex h-[600px] justify-center items-center bg-black">
       <div className="w-full max-w-lg p-8 bg-gray-800 rounded-lg shadow-inner">
         <h1 className="text-center text-2xl font-semibold text-white mb-6">Registration</h1>
         <form action="login.php" method="post" className="space-y-6">
