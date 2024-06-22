@@ -7,19 +7,27 @@ import clientImage1 from '../assets/Images/bg4.jpg';
 import clientLogo from '../assets/Images/logo2.jpg';
 // import { Link } from 'react-router-dom';
 
+import { useNavigate } from 'react-router-dom';
+
 import Navbar from '../components/Navbar';
 
-function Home() {
+function Homee() {
+
+    const navigate = useNavigate();
+
+
+    const handleRegister= ()=>{
+
+        navigate('/Signup');
+
+    }
+
+    
   return (
 
 
     <div className='bg-black'>
-   
 
-
-      {/* <div><Navbar/></div> */}
-
-      
 
 
 
@@ -31,7 +39,7 @@ function Home() {
         <p className='text-white'>LifeShare Network is a dedicated platform that connects donors with individuals in need of life-saving blood and essential medicines.</p>
         <p className='text-white'>At Blood and Medicine Donation Network, we believe that every donation, whether it be blood or medication, has the power to save lives and improve health outcomes for those in need.</p>
         </div>
-        <button className=" mt-5 text-white p-2 rounded-3xl border-2  hover:bg-red-700">Registration Now!</button>
+        <button onClick={handleRegister} className=" mt-5 text-white p-2 rounded-3xl border-2  hover:bg-red-700">Register Now!</button>
       </section>
       <section className="p-10 bg-black">
         <div className="flex justify-evenly space-x-2">
@@ -67,7 +75,7 @@ function Home() {
             
             <div className='flex justify-center'>
 
-            <button className=" mt-5 text-white p-2 rounded-3xl border-2  hover:bg-red-700">Blood Donate</button>
+            <button onClick={()=>{navigate('/login')}} className=" mt-5 text-white p-2 rounded-3xl border-2  hover:bg-red-700">Blood Donate</button>
             </div>
 
           </div>
@@ -78,7 +86,7 @@ function Home() {
 
             <div className='flex justify-center'>
 
-            <button className="  mt-5 text-white p-2 rounded-3xl border-2  hover:bg-red-700">Medicine Donate</button>
+            <button onClick={()=>{navigate('/login')}} className="  mt-5 text-white p-2 rounded-3xl border-2  hover:bg-red-700">Medicine Donate</button>
             </div>
 
           </div>
@@ -111,4 +119,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Homee;

@@ -1,6 +1,30 @@
+
+
+
+
+
+
+
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
+
+
+
+
 
 function Login() {
+    const navigate = useNavigate(); // Hook for navigation
+
+
+    
+const handleLogin = ()=>{
+    navigate("/dashboard");
+}
+
+    const handleNavigateToSignUp = () => {
+        navigate('/signup'); // Navigate to the signup route when the signup button is clicked
+    };
+
     return (
         <div className="flex h-screen items-center justify-center bg-black">
             <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-xl">
@@ -16,10 +40,13 @@ function Login() {
                         <input type="password" id="password" name="password" placeholder="Enter your password"
                                className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"/>
                     </div>
-                    <div className="mb-6 flex justify-end">
+                    <div className="flex justify-between items-center">
                         <a href="/forgot-password" className="text-sm text-red-500 hover:text-red-700">Forgot Password?</a>
+                        <button type="button" onClick={handleNavigateToSignUp} className="text-sm text-blue-500 hover:text-blue-700">
+                            Need an account? Sign up
+                        </button>
                     </div>
-                    <button type="submit" className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    <button onClick={handleLogin} type="submit" className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         Login
                     </button>
                 </form>
@@ -29,3 +56,4 @@ function Login() {
 }
 
 export default Login;
+
