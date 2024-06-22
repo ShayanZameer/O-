@@ -1,54 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';  // Assuming you're using react-router for navigation
-
-// function DashboardSidebar() {
-//     return (
-//         <aside className="w-64 bg-gray-800 shadow-md h-full flex flex-col">
-//             <div className="px-5 py-4">
-//                 <h2 className="text-white text-xl font-semibold">Blood Bank Dashboard</h2>
-//             </div>
-//             <ul className="flex-grow">
-//                 <li>
-//                     <Link to="/dashboard/overview" className="block px-4 py-2 text-white hover:bg-gray-700">
-//                         Dashboard Overview
-//                     </Link>
-//                 </li>
-//                 <li>
-//                     <Link to="/dashboard/donations" className="block px-4 py-2 text-white hover:bg-gray-700">
-//                         Recent Donations
-//                     </Link>
-//                 </li>
-//                 <li>
-//                     <Link to="/dashboard/requests" className="block px-4 py-2 text-white hover:bg-gray-700">
-//                         Urgent Requests
-//                     </Link>
-//                 </li>
-//                 <li>
-//                     <Link to="/dashboard/inventory" className="block px-4 py-2 text-white hover:bg-gray-700">
-//                         Inventory Levels
-//                     </Link>
-//                 </li>
-//                 <li>
-//                     <Link to="/dashboard/reports" className="block px-4 py-2 text-white hover:bg-gray-700">
-//                         Reports
-//                     </Link>
-//                 </li>
-//                 <li>
-//                     <Link to="/dashboard/settings" className="block px-4 py-2 text-white hover:bg-gray-700">
-//                         Settings
-//                     </Link>
-//                 </li>
-//             </ul>
-//             <div className="px-5 py-4">
-//                 <button className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-//                     Log Out
-//                 </button>
-//             </div>
-//         </aside>
-//     );
-// }
-
-// export default DashboardSidebar;
 
 
 
@@ -62,19 +11,19 @@ import {
   ChartBarIcon,
   CogIcon,
   ArrowDownCircleIcon,
-  
-} from '@heroicons/react/24/solid'; // Updated import path for Heroicons v2
-
-import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid';
-
+} from '@heroicons/react/24/solid';
+import { HeartIcon } from '@heroicons/react/24/solid';  // This is hypothetical; replace with an actual droplet icon if available
 
 function DashboardSidebar() {
     return (
         <aside className="w-64 bg-gray-800 shadow-xl h-full flex flex-col text-white">
-            <div className="px-5 py-4">
-                <h2 className="text-xl font-semibold">Blood Bank Dashboard</h2>
+            <div className="px-5 py-4 flex items-center my-1">
+                <HeartIcon className="h-12 w-12 text-red-500 mr-2"/>  {/* New droplet icon */}
+                <h2 className="text-xl font-semibold flex items-center">
+                    <span className="text-red-500 font-bold text-5xl ml-3" style={{ fontFamily: "'poppins', sans-serif" }}>O-</span>  {/* Stylish O- label with Google Font */}
+                </h2>
             </div>
-            <ul className="flex-grow">
+            <ul className="flex-grow my-3">
                 <SidebarLink icon={HomeIcon} to="/dashboard/overview" label="Dashboard Overview" />
                 <SidebarLink icon={InboxIcon} to="/dashboard/donations" label="Recent Donations" />
                 <SidebarLink icon={BellIcon} to="/dashboard/requests" label="Urgent Requests" />
