@@ -24,18 +24,21 @@ function DashboardSidebar() {
                 </h2>
             </div>
             <ul className="flex-grow my-3">
-                <SidebarLink icon={HomeIcon} to="/dashboard/overview" label="Dashboard Overview" />
-                <SidebarLink icon={InboxIcon} to="/dashboard/donations" label="Recent Donations" />
-                <SidebarLink icon={BellIcon} to="/dashboard/requests" label="Urgent Requests" />
+                <SidebarLink icon={HomeIcon} to="/dashboard/dashboardd" label="Dashboard Overview" />
+                <SidebarLink icon={CogIcon} to="/dashboard/DonateWithUs" label="Donate With Us" />
+                <SidebarLink icon={CogIcon} to="/dashboard/reports" label="Need Blood" />
+                <SidebarLink icon={InboxIcon} to="/dashboard/recentDonations" label="Recent Donations" />
+                <SidebarLink icon={BellIcon} to="/dashboard/UrgentRequests" label="Urgent Requests" />
                 <SidebarLink icon={ChartBarIcon} to="/dashboard/inventory" label="Inventory Levels" />
+                <SidebarLink icon={CogIcon} to="/dashboard/contact" label="Contact Us" />
+
                 <SidebarLink icon={CogIcon} to="/dashboard/reports" label="Reports" />
-                <SidebarLink icon={CogIcon} to="/dashboard/settings" label="Settings" />
             </ul>
             <div className="px-5 py-4">
-                <button className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
+                <Link className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center">
                     <ArrowDownCircleIcon className="h-6 w-6 mr-2" />
                     Log Out
-                </button>
+                </Link>
             </div>
         </aside>
     );

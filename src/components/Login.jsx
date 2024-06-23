@@ -18,7 +18,7 @@ function Login() {
 
     
 const handleLogin = ()=>{
-    navigate("/dashboard");
+    navigate("/dashboard/dashboardd");
 }
 
     const handleNavigateToSignUp = () => {

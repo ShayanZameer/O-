@@ -4,20 +4,27 @@ import DashboardSidebar from '../components/DashboardSidebar';
 import BloodStockLevels from '../components/BloodStockLevels';
 import RecentDonations from '../components/RecentDonations';
 import UrgentRequests from '../components/UrgentRequests';
-// import StatisticsPanel from './StatisticsPanel';
+import StatisticsPanel from '../components/StatisticsPanel';
+
+import DonationTrends from '../components/DonationTrends';
 
 function Dashboardd() {
     return (
-        <div className="flex h-screen bg-gray-900 text-white">
-            <DashboardSidebar />
+        <div className="flex h-screen bg-gray-900 text-white ">
+            {/* <DashboardSidebar /> */}
             <div className="flex-1 flex flex-col">
-                <DashboardHeader />
-                <div className="flex-grow p-4 overflow-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* <DashboardHeader /> */}
+                <div className="flex-grow p-4 overflow-auto ">
+                    <div className="flex space-x-2 justify-evenly ">
+                        <StatisticsPanel />
+                        <DonationTrends/>
+                        {/* <RecentDonations /> */}
+                        {/* <UrgentRequests /> */}
+                    </div>
+
+                    <div className='w-[500px] mt-4'>
                         <BloodStockLevels />
-                        <RecentDonations />
-                        <UrgentRequests />
-                        {/* <StatisticsPanel /> */}
+
                     </div>
                 </div>
             </div>

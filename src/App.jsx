@@ -1,75 +1,44 @@
-// import React, { useState, useEffect } from 'react';
-
-// import AboutUs from './components/AboutUs';
-
-// import Navbar from './components/Navbar';
-// import Signup from './components/Signup';
-// import Donate from './components/Donate';
-// import Homee from './Pages/Homee';
-// import Login from './components/Login';
-
-// import Contact from './components/Contact';
-
-// import Dashboardd from './Pages/Dashboardd';
-// import { BrowserRouter as Router,Routes,Route,useLocation} from "react-router-dom";
 
 
 
+
+// import React from 'react';
+// import { BrowserRouter as Router } from "react-router-dom";
+// import MainContent from './Stack/MainContent';
+
+// import DashboardStack from './Stack/DashboardStack';
 // const App = () => {
-//   const location = useLocation();
-//   const [showNavbar, setShowNavbar] = useState(true);
-
-//   useEffect(()=>{
-//     const path =  location.pathname;
-//     setShowNavbar(path !== "/dashboard" );
-//   }, [location]);
-
-
 //   return (
-
-
 //     <Router>
+//       <MainContent />
 
-//     <div>
-//   {showNavbar && <Navbar/>}
-//     </div>
-
-
-//     <div>
-// <Routes>
-// <Route path = "/" element={<Homee/>}/>
-// <Route path = "/about" element={<AboutUs/>}/>
-// <Route path = "/Signup" element={<Signup/>}/>
-
-// <Route path ="/donate" element={<Donate/>}/>
-
-// <Route path="/login" element={<Login/>}/>
-
-// <Route path="/contact" element={<Contact/>}/>
-
-
-// <Route path ="/dashboard" element = {<Dashboardd/>}/>
-
-
-// </Routes>
-//     </div>
+//       <DashboardStack/>
 //     </Router>
-//   )
+//   );
 // }
 
-// export default App
+// export default App;
 
 
 
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
-import MainContent from './components/MainContent';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainContent from './Stack/MainContent';
+import DashboardStack from './Stack/DashboardStack';
+import Dashboardd from './Pages/Dashboardd';
+
 const App = () => {
   return (
     <Router>
-      <MainContent />
+      {/* <MainContent/> */}
+      
+      <Routes>
+        <Route path="/dashboard/*" element={<DashboardStack />} />
+        <Route path="/*" element={<MainContent />} />
+      </Routes>
     </Router>
   );
 }
 
 export default App;
+
