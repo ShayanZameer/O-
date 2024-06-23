@@ -26,10 +26,10 @@ function DashboardSidebar() {
             <ul className="flex-grow my-3">
                 <SidebarLink icon={HomeIcon} to="/dashboard/dashboardd" label="Dashboard Overview" />
                 <SidebarLink icon={CogIcon} to="/dashboard/DonateWithUs" label="Donate With Us" />
-                <SidebarLink icon={CogIcon} to="/dashboard/reports" label="Need Blood" />
+                <SidebarLink icon={CogIcon} to="/dashboard/NeedBlood" label="Need Blood" />
+                <SidebarLink icon={CogIcon} to="/dashboard/NeedMedicine" label="Need Medicine" />
                 <SidebarLink icon={InboxIcon} to="/dashboard/recentDonations" label="Recent Donations" />
                 <SidebarLink icon={BellIcon} to="/dashboard/UrgentRequests" label="Urgent Requests" />
-                <SidebarLink icon={ChartBarIcon} to="/dashboard/inventory" label="Inventory Levels" />
                 <SidebarLink icon={CogIcon} to="/dashboard/contact" label="Contact Us" />
 
                 <SidebarLink icon={CogIcon} to="/dashboard/reports" label="Reports" />

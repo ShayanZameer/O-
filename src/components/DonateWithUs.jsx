@@ -29,7 +29,7 @@ function DonateWithUs() {
                 </div>
                 <div
                     className="flex flex-col items-center justify-center space-y-3 p-4 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors duration-300 cursor-pointer"
-                    onClick={() => handleNavigate('/dashboard/donateMedicine')}>
+                    onClick={() => handleNavigate('/dashboard/DonateMedicine')}>
                     <RiMedicineBottleLine className="h-12 w-12 text-blue-500"/>
                     <span className="text-xl font-semibold">Donate Medicine</span>
                     <p className="text-sm text-gray-700 text-center">

@@ -11,6 +11,9 @@ import DonateWithUs from '../components/DonateWithUs';
 import Contact from '../components/Contact';
 
 import Donate from '../components/Donate';
+import DonateMedicine from '../components/DonateMedicine';
+import NeedBlood from '../components/NeedBlood';
+import NeedMedicine from '../components/NeedMedicine';
 
 const DashboardStack = () => {
   return (
@@ -30,7 +33,12 @@ const DashboardStack = () => {
 
           <Route path='DonateWithUs' element ={ <DonateWithUs/>}/>
           <Route path="contact" element={<Contact />} />
+          <Route path='DonateMedicine' element ={<DonateMedicine/>}/>
           <Route path = "Reports" element = {<Reports/>}/>
+
+          <Route path = "NeedMedicine" element ={<NeedMedicine/>}/>
+
+        <Route path = "NeedBlood" element = {<NeedBlood/>}/>
         </Routes>
       </div>
     </div>
