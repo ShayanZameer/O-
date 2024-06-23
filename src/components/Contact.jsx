@@ -2,7 +2,7 @@ import React from 'react';
 
 function Contact() {
     return (
-        <div className="flex flex-col h-screen bg-black text-white">
+        <div className="flex flex-col w-[100%] bg-black text-white ">
             
 
             <section className="flex flex-1 items-center justify-center">
@@ -38,9 +38,7 @@ function Contact() {
                 </div>
             </section>
 
-            <footer className="text-center py-4 bg-black">
-                Copyright &copy; www.lifesharenetwork.com. All right reserved!
-            </footer>
+           
         </div>
     );
 }

@@ -54,9 +54,9 @@ const MainContent = () => {
         <Route path="/" element={<Homee />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/donate" element={<Donate />} />
+        
         <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact />} />
+        
                   {/* <Route path='/dashboard' element ={<Dashboardd/>}/> */}
 
         {/* Assuming other routes that are not part of the dashboard go here */}

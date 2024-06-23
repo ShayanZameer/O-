@@ -2,10 +2,10 @@ import React from 'react';
 
 function Donate() {
     return (
-        <div className="flex h-[600] py-4 items-center justify-center bg-black">
+        <div className="flex max-h-[605px] py-4 items-center justify-center bg-black w-[100%] ml-8">
           
 
-            <div className="w-full max-w-xl bg-gray-800 p-6 rounded-lg shadow-xl">
+            <div className="w-full max-h-[605px] max-w-xl bg-gray-800 p-6 rounded-lg shadow-xl">
                 <h1 className="text-xl font-semibold text-white text-center mb-6">Blood Donation</h1>
                 <form action="login.php" method="post" className="space-y-6">
                     <div className="flex flex-wrap justify-evenly ">

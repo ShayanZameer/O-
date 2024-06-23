@@ -8,6 +8,9 @@ import Dashboardd from '../Pages/Dashboardd';
 import UrgentRequests from '../components/UrgentRequests';
 import Reports from '../components/Reports';
 import DonateWithUs from '../components/DonateWithUs';
+import Contact from '../components/Contact';
+
+import Donate from '../components/Donate';
 
 const DashboardStack = () => {
   return (
@@ -15,7 +18,7 @@ const DashboardStack = () => {
       <DashboardHeader />
       <div className='flex  '>
         
-        <div className='w-56 h-[590px]'>
+        <div className='w-56 h-[605px]'>
 
         <DashboardSidebar />
         </div>
@@ -23,11 +26,11 @@ const DashboardStack = () => {
             <Route path ="dashboardd" element={<Dashboardd/>}/> 
           <Route path="recentDonations" element={<RecentDonations />} />
           <Route path = "UrgentRequests" element= {<UrgentRequests/>}/>
+          <Route path="donate" element={<Donate />} />
 
           <Route path='DonateWithUs' element ={ <DonateWithUs/>}/>
-
+          <Route path="contact" element={<Contact />} />
           <Route path = "Reports" element = {<Reports/>}/>
-          {/* Add more dashboard-specific routes here */}
         </Routes>
       </div>
     </div>

@@ -20,7 +20,7 @@ function DonateWithUs() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
                 <div
                     className="flex flex-col items-center justify-center space-y-3 p-4 bg-red-100 rounded-lg hover:bg-red-200 transition-colors duration-300 cursor-pointer"
-                    onClick={() => handleNavigate('/donate-blood')}>
+                    onClick={() => handleNavigate('/dashboard/donate')}>
                     <HeartIcon className="h-12 w-12 text-red-500"/>
                     <span className="text-xl font-semibold">Donate Blood</span>
                     <p className="text-sm text-gray-700 text-center">
@@ -29,7 +29,7 @@ function DonateWithUs() {
                 </div>
                 <div
                     className="flex flex-col items-center justify-center space-y-3 p-4 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors duration-300 cursor-pointer"
-                    onClick={() => handleNavigate('/donate-medicine')}>
+                    onClick={() => handleNavigate('/dashboard/donateMedicine')}>
                     <RiMedicineBottleLine className="h-12 w-12 text-blue-500"/>
                     <span className="text-xl font-semibold">Donate Medicine</span>
                     <p className="text-sm text-gray-700 text-center">
