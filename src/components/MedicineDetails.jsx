@@ -4,6 +4,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { MapIcon } from '@heroicons/react/24/outline'; 
 
+import Map from './Map';
+
 function MedicineDetails({ medicines }) {
     const { medicineId } = useParams();
     const medicine = medicines.find(med => med.id === parseInt(medicineId));
@@ -29,8 +31,7 @@ function MedicineDetails({ medicines }) {
                         <p className="text-lg mb-3"><strong>Expiry Date:</strong> {medicine.expiryDate}</p>
                         <p className="text-lg mb-3"><strong>Location:</strong> {medicine.location}</p>
                         <div className="mt-4 bg-gray-700 p-6 rounded-lg shadow-inner flex items-center justify-center">
-                            <MapIcon className="h-6 w-6 text-green-500 mr-2"/>
-                            <p className="text-sm">Interactive map will be here.</p>
+                            <Map/>
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,15 @@
-
-
-
-
-
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { PhoneIcon } from '@heroicons/react/24/outline';  // Importing a phone icon for contact
+import { useParams } from 'react-router-dom';
 
-function NeedBlood() {
+
+function BloodTypeDetails() {
+
+
+    
+    const { type } = useParams();
+
+
+
     const bloodTypes = [
         {
             type: 'A+',
@@ -90,39 +92,38 @@ function NeedBlood() {
         }
     ];
 
+    const blood = bloodTypes.find(b => b.type === type);
+
+
     return (
-        <div className="p-6 bg-black max-h-[605px] text-white  shadow-lg animate-fade-in-up mx-auto ml-8">
-            <h2 className="text-2xl font-bold mb-4">Need Blood?</h2>
-            <p className="mb-6">Explore the available blood types below. Click on each type for details and to reach out if you need a specific type.</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {bloodTypes.map((blood, index) => (
-
-                    
-                    <Link to={`/dashboard/blood-details/${blood.type}`} key={index} className={`p-4 rounded-lg transition duration-300 ease-in-out ${blood.urgent ? 'bg-red-500 hover:bg-red-800' : 'bg-yellow-400 hover:bg-yellow-700'}`}>
-
-                        <div>
-
-                        <h3 className="text-xl font-semibold">{blood.type}</h3>
-                        <p>Units Available: {blood.availability}</p>
-                        <p>Last Donation: {blood.lastDonation}</p>
+        <div className="p-6 bg-white max-h-[605px] text-black shadow-lg animate-fade-in-up mx-auto ml-8 rounded-lg">
+            <h2 className="text-3xl font-bold mb-4 text-center">Blood Type: {blood.type}</h2>
+            <div className="flex justify-between mb-4">
+                <div>
+                    <p className="text-xl font-semibold">Units Available:</p>
+                    <p className="text-2xl">{blood.availability}</p>
+                </div>
+                <div>
+                    <p className="text-xl font-semibold">Last Donation:</p>
+                    <p className="text-2xl">{blood.lastDonation}</p>
+                </div>
+            </div>
+            <h4 className="text-2xl font-medium mt-4 mb-2">Locations:</h4>
+            <ul className="list-disc list-inside mb-4">
+                {blood.locations.map((location, idx) => (
+                    <li key={idx} className="mb-2">
+                        <div className="p-4 bg-gray-100 rounded-lg transition-transform transform hover:scale-105">
+                            <p className="text-lg font-semibold">{location.place}</p>
+                            <p>Units: {location.units}</p>
                         </div>
-                        <div to="/contact" className="flex items-center justify-end mt-2 text-sm text-yellow-200 hover:text-yellow-100">
-                            <PhoneIcon color='green' className="h-6 w-6 mr-2"/>
-                            
-                            <span>
-
-                            <Link to="/contact">Contact</Link>
-                            </span>
-
-                        
-                        </div>
-                    </Link>
-                    
+                    </li>
                 ))}
+            </ul>
+            <div className="flex justify-center">
+                <button className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300">Contact</button>
             </div>
         </div>
     );
 }
 
-export default NeedBlood;
-
+export default BloodTypeDetails;

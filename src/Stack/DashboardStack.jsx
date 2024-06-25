@@ -6,6 +6,7 @@ import RecentDonations from '../components/RecentDonations'
 import DashboardHeader from '../components/DashboardHeader';
 import DashboardSidebar from '../components/DashboardSidebar';
 import Dashboardd from '../Pages/Dashboardd';
+import BloodTypeDetails from '../components/BloodTypeDetails';
 
 import UrgentRequests from '../components/UrgentRequests';
 import Reports from '../components/Reports';
@@ -20,7 +21,9 @@ import NeedMedicine from '../components/NeedMedicine';
 import MedicineDetails from '../components/MedicineDetails';
 
 import image1 from "../assets/Images/Medicine2.jpg";
-import image2 from "../assets/Images/medicine1.jpg"
+import image2 from "../assets/Images/medicine1.jpg";
+
+// import BloodTypeDetails from '../components/BloodTypeDetails';
 const DashboardStack = () => {
 
 
@@ -63,8 +66,10 @@ const DashboardStack = () => {
           <Route path = "Reports" element = {<Reports/>}/>
 
           <Route path = "NeedMedicine" element ={<NeedMedicine medicines={medicines}/>}/>
-
         <Route path = "NeedBlood" element = {<NeedBlood/>}/>
+          <Route path="/blood-details/:type" element={<BloodTypeDetails />} />
+
+
 
         {/* <Route path='medicine-details/:medicineId' element={<MedicineDetails/>}/> */}
 
