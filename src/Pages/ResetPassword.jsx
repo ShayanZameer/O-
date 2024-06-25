@@ -11,8 +11,7 @@ function ResetPassword() {
 
     const handleResetPassword = (event) => {
         event.preventDefault();
-        // Logic for resetting password goes here
-        // Assuming password reset is successful for demonstration
+        
         setShowNotification(true); // Show notification after password is reset
     };
 
