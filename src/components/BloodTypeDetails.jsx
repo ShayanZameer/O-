@@ -1,5 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { MapPinIcon } from '@heroicons/react/24/outline'; // Importing a map pin icon for location
+
 
 
 function BloodTypeDetails() {
@@ -96,33 +98,58 @@ function BloodTypeDetails() {
 
 
     return (
-        <div className="p-6 bg-white max-h-[605px] text-black shadow-lg animate-fade-in-up mx-auto ml-8 rounded-lg">
-            <h2 className="text-3xl font-bold mb-4 text-center">Blood Type: {blood.type}</h2>
-            <div className="flex justify-between mb-4">
+        
+
+
+        <div className="p-6 bg-black max-h-[605px] ml-8 text-white flex flex-col items-center w-[100%]">
+        <h2 className="text-4xl font-bold mb-8 text-center animate-pulse">Blood Type: {blood.type}</h2>
+        <div className="bg-gray-800 p-8 rounded-lg max-h-[85%] shadow-lg max-w-4xl w-full">
+            <div className="flex justify-between mb-6 animate-fade-in-up">
                 <div>
                     <p className="text-xl font-semibold">Units Available:</p>
-                    <p className="text-2xl">{blood.availability}</p>
+                    <p className="text-3xl">{blood.availability}</p>
                 </div>
                 <div>
                     <p className="text-xl font-semibold">Last Donation:</p>
-                    <p className="text-2xl">{blood.lastDonation}</p>
+                    <p className="text-3xl">{blood.lastDonation}</p>
                 </div>
             </div>
-            <h4 className="text-2xl font-medium mt-4 mb-2">Locations:</h4>
-            <ul className="list-disc list-inside mb-4">
+            <h4 className="text-2xl font-medium mt-4 mb-4">Locations:</h4>
+
+            <div className=' flex justify-between'>
+
+
+            
+            <ul className="list-none mb-6 animate-fade-in-up">
                 {blood.locations.map((location, idx) => (
-                    <li key={idx} className="mb-2">
-                        <div className="p-4 bg-gray-100 rounded-lg transition-transform transform hover:scale-105">
-                            <p className="text-lg font-semibold">{location.place}</p>
-                            <p>Units: {location.units}</p>
+                    <li key={idx} className="mb-4">
+                        <div className="p-4 bg-gray-700 w-[400px] rounded-lg transition-transform transform hover:scale-105">
+                            <div className="flex items-center ">
+                                <MapPinIcon className="h-6 w-6 text-yellow-400 mr-3"/>
+                                <div>
+                                    <p className="text-lg font-semibold">{location.place}</p>
+                                    <p>Units: {location.units}</p>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 ))}
             </ul>
-            <div className="flex justify-center">
-                <button className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300">Contact</button>
+
+                              {/* Placeholder for the map */}
+                              <div className="flex items-center justify-center h-full">
+                    <p className="text-lg font-semibold text-gray-300">Map will be displayed here</p>
+                </div>
             </div>
+            {/* <div className="flex justify-center">
+                <button className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300">Contact</button>
+            </div> */}
         </div>
+        
+              
+            
+        
+    </div>
     );
 }
 

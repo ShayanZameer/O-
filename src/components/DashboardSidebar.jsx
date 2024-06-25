@@ -32,7 +32,6 @@ function DashboardSidebar() {
                 <SidebarLink icon={BellIcon} to="/dashboard/UrgentRequests" label="Urgent Requests" />
                 <SidebarLink icon={CogIcon} to="/dashboard/contact" label="Contact Us" />
 
-                <SidebarLink icon={CogIcon} to="/dashboard/reports" label="Reports" />
             </ul>
             <div className="px-5 py-4">
                 <Link className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center">

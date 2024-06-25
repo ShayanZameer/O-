@@ -9,9 +9,8 @@ import Dashboardd from '../Pages/Dashboardd';
 import BloodTypeDetails from '../components/BloodTypeDetails';
 
 import UrgentRequests from '../components/UrgentRequests';
-import Reports from '../components/Reports';
 import DonateWithUs from '../components/DonateWithUs';
-import Contact from '../components/Contact';
+import Contact from '../Pages/Contact';
 
 import Donate from '../components/Donate';
 import DonateMedicine from '../components/DonateMedicine';
@@ -63,7 +62,6 @@ const DashboardStack = () => {
           <Route path='DonateWithUs' element ={ <DonateWithUs/>}/>
           <Route path="contact" element={<Contact />} />
           <Route path='DonateMedicine' element ={<DonateMedicine/>}/>
-          <Route path = "Reports" element = {<Reports/>}/>
 
           <Route path = "NeedMedicine" element ={<NeedMedicine medicines={medicines}/>}/>
         <Route path = "NeedBlood" element = {<NeedBlood/>}/>

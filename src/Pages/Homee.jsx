@@ -5,6 +5,7 @@ import bg2 from '../assets/Images/bg2.jpg';
 import bg3 from '../assets/Images/bg3.jpg';
 import clientImage1 from '../assets/Images/bg4.jpg';
 import clientLogo from '../assets/Images/logo2.jpg';
+// import Navbar from '../components/Navbar';
 // import { Link } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';

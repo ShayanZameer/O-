@@ -1,9 +1,6 @@
 import React from 'react';
-import logo from '../assets/Images/logo.png' 
 import bgImage from '../assets/Images/bg3.jpg';  // Adjust the path as necessary
-import { Link } from 'react-router-dom';
 
-import Navbar from './Navbar';
 
 function AboutUs() {
   return (
