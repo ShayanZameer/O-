@@ -1,27 +1,63 @@
 
-
-
-
-
-
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
-
+import { useNavigate } from 'react-router-dom';
+import config from '../../config';
+import { useState } from 'react';
+import Popup from '../components/Popup';
 
 
 
 
 function Login() {
-    const navigate = useNavigate(); // Hook for navigation
+
+    const navigate = useNavigate(); 
+    const [showPopup, setShowPopup] = useState(false);
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+       
+      });
+
+
+      const closePopup = () => {
+        setShowPopup(false); // Close popup
+    
+      };
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          [name]: value
+        }));
+      };
 
 
     
 const handleLogin = ()=>{
+
+
+    try{
+    const response = Axios.post(`${config.REACT_APP_BACKEND_URL}/api/auth/login`,{
+        email:formData.email,
+        password:formData.password
+    })
+
     navigate("/dashboard/dashboardd");
+
+}catch(error){
+    console.log(error);
+}
+
+
+
+    
 }
 
     const handleNavigateToSignUp = () => {
+
+
         navigate('/signup'); // Navigate to the signup route when the signup button is clicked
     };
 
@@ -33,12 +69,14 @@ const handleLogin = ()=>{
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-white font-medium">Email</label>
                         <input type="email" id="email" name="email" placeholder="Enter your email"
-                               className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"/>
+                               className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"  value={formData.email}
+                               onChange={handleChange} />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="password" className="block text-white font-medium">Password</label>
                         <input type="password" id="password" name="password" placeholder="Enter your password"
-                               className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"/>
+                               className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600" value={formData.password}
+                               onChange={handleChange} />
                     </div>
                     <div className="flex justify-between items-center">
                         <a href="/forgot-password" className="text-sm text-red-500 hover:text-red-700">Forgot Password?</a>
@@ -51,6 +89,10 @@ const handleLogin = ()=>{
                     </button>
                 </form>
             </div>
+
+            {showPopup&&(
+                <Popup message="User Login Successfully"   onClose={closePopup} />
+            )}
         </div>
     );
 }
