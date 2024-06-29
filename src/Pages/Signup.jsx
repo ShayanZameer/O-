@@ -28,13 +28,13 @@ function Signup() {
     confirmPassword: '',
     gender: ''
   });
-
   const closePopup = () => {
     setShowPopup(false); // Close popup
     // Optionally, reset any state related to the popup
     navigate('/login'); // Navigate to Login screen after closing popup
 
   };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

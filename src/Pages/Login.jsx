@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import config from '../../config';
 import { useState } from 'react';
 import Popup from '../components/Popup';
+import axios from 'axios';
 
 
 
@@ -22,6 +23,8 @@ function Login() {
 
       const closePopup = () => {
         setShowPopup(false); // Close popup
+        navigate("/dashboard/dashboardd");
+
     
       };
     
@@ -35,27 +38,33 @@ function Login() {
 
 
     
-const handleLogin = ()=>{
-
+const handleLogin = async (e)=>{
+    e.preventDefault();
 
     try{
-    const response = Axios.post(`${config.REACT_APP_BACKEND_URL}/api/auth/login`,{
+    const response = await axios.post(`${config.REACT_APP_BACKEND_URL}/api/auth/login`,{
         email:formData.email,
         password:formData.password
     })
+  
 
-    navigate("/dashboard/dashboardd");
+    if (response.data.authToken) {
+        localStorage.setItem('authToken', response.data.authToken);
+        setShowPopup(true);
+      }
+    setFormData({
+        
+        email: '',
+        password: '',
+        })
+
+
 
 }catch(error){
     console.log(error);
+}   
 }
-
-
-
-    
-}
-
-    const handleNavigateToSignUp = () => {
+   const handleNavigateToSignUp = () => {
 
 
         navigate('/signup'); // Navigate to the signup route when the signup button is clicked
@@ -65,7 +74,7 @@ const handleLogin = ()=>{
         <div className="flex h-screen items-center justify-center bg-black">
             <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-xl">
                 <h1 className="text-xl font-semibold text-white text-center mb-6">Login</h1>
-                <form action="/login" method="post" className="space-y-6">
+                <form onSubmit={handleLogin} method="post" className="space-y-6">
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-white font-medium">Email</label>
                         <input type="email" id="email" name="email" placeholder="Enter your email"
