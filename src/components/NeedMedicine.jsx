@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 
 import image1 from "../assets/Images/Medicine2.jpg";
 import image2 from "../assets/Images/medicine1.jpg"
+import { FaCartPlus } from 'react-icons/fa';
+
 
 import { Link } from 'react-router-dom';
 
@@ -34,6 +36,11 @@ function NeedMedicine() {
         setCurrentPage(pageNumber);
     };
 
+    const addToCart = (medicine) => {
+        console.log('Added to cart:', medicine);
+        // Implement your add to cart logic here
+    };
+
     const handleSearchChange = (event) => {
         const newSearchTerm = event.target.value.toLowerCase();
 
@@ -51,10 +58,7 @@ function NeedMedicine() {
 
     
 
-    // const filteredMedicines = searchTerm.length === 0 
-    //   ? initialMedicines 
-    //   : initialMedicines.filter(medicine => medicine.name.toLowerCase().includes(searchTerm));
-
+   
     // Pagination logic
     const pageCount = Math.ceil(filteredMedicines.length / itemsPerPage);
 
@@ -79,8 +83,18 @@ function NeedMedicine() {
         </button>
     ));
 
+
+     // Function to truncate text
+     const truncateText = (text, wordLimit) => {
+        const words = text.split(' ');
+        if (words.length > wordLimit) {
+            return words.slice(0, wordLimit).join(' ') + '...';
+        }
+        return text;
+    };
+
     return (
-        <div className="p-6 bg-black text-white w-[100%] max-h-[605px]">
+        <div className="p-6 bg-black text-white w-[100%] max-h-[605px] ml-8">
             <h2 className="text-2xl font-bold mb-4">Need Medicine?</h2>
             <input
                 type="text"
@@ -96,7 +110,13 @@ function NeedMedicine() {
                     <Link to={`/dashboard/medicine-details/${medicine.id}`}  key={medicine.id} className="bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 transition duration-300 ease-in-out cursor-pointer animate-fade-in-up">
                         <img src={medicine.imageUrl} alt={medicine.name} className="w-full h-20 object-cover rounded-md mb-3"/>
                         <h3 className="text-lg font-semibold">{medicine.name}</h3>
-                        <p className="text-sm mb-1">Description: {medicine.description}</p>
+                        <p className="text-sm mb-1 h-4">Description:{truncateText(medicine.description, 4)}</p>
+
+                        <div  className='flex justify-end mt-3'>
+
+                        <FaCartPlus  onClick={() => addToCart(medicine)} size={24} />
+                        </div>
+    
                     </Link>
                 ))}
             </div>

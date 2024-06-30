@@ -2,9 +2,7 @@
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { MapIcon } from '@heroicons/react/24/outline'; 
 
-import Map from './Map';
 
 function MedicineDetails({ medicines }) {
     const { medicineId } = useParams();
@@ -31,7 +29,6 @@ function MedicineDetails({ medicines }) {
                         <p className="text-lg mb-3"><strong>Expiry Date:</strong> {medicine.expiryDate}</p>
                         <p className="text-lg mb-3"><strong>Location:</strong> {medicine.location}</p>
                         <div className="mt-4 bg-gray-700 p-6 rounded-lg shadow-inner flex items-center justify-center">
-                            <Map/>
                         </div>
                     </div>
                 </div>
