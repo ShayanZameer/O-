@@ -2,34 +2,23 @@
 
 import React, { useState } from 'react';
 
-import image1 from "../assets/Images/Medicine2.jpg";
-import image2 from "../assets/Images/medicine1.jpg"
+
 import { FaCartPlus } from 'react-icons/fa';
+
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 import { Link } from 'react-router-dom';
 
-function NeedMedicine() {
-    const initialMedicines = [
-        { id: 1, name: 'Amoxicillin', description: 'Antibiotic used to treat various infections.', imageUrl: image2, location: 'Aga Khan University Hospital, Karachi' },
-        { id: 2, name: 'Ibuprofen', description: 'Used to reduce fever and treat pain or inflammation.', imageUrl: image1, location: 'Shaukat Khanum Memorial Cancer Hospital, Lahore' },
-        { id: 3, name: 'Cetirizine', description: 'Antihistamine that reduces the effects of natural chemical histamine.', imageUrl: image2, location: 'Liaquat National Hospital, Karachi' },
-        { id: 4, name: 'Metformin', description: 'Medicine used to treat type 2 diabetes.', imageUrl: image1, location: 'Combined Military Hospital, Rawalpindi' },
-        { id: 5, name: 'Lisinopril', description: 'Used to treat high blood pressure.', imageUrl: image2, location: 'Ziauddin Hospital, Karachi' },
-        { id: 6, name: 'Simvastatin', description: 'Used to control elevated cholesterol.', imageUrl: image1, location: 'PIMS Hospital, Islamabad' },
-        { id: 7, name: 'Amlodipine', description: 'Medicine used to treat high blood pressure.', imageUrl: image2, location: 'Nishtar Hospital, Multan' },
-        { id: 8, name: 'Atorvastatin', description: 'Used to treat high cholesterol.', imageUrl: image2, location: 'Fauji Foundation Hospital, Rawalpindi' },
-        { id: 9, name: 'Atorvastatin', description: 'Used to treat high cholesterol.', imageUrl: image2, location: 'Civil Hospital, Karachi' },
-        { id: 10, name: 'Atorvastatin', description: 'Used to treat high cholesterol.', imageUrl: image2, location: 'Jinnah Hospital, Lahore' },
-        { id: 11, name: 'Atorvastatin', description: 'Used to treat high cholesterol.', imageUrl: image2, location: 'Holy Family Hospital, Rawalpindi' },
-        // More medicines...
-    ];
+function NeedMedicine({ medicines, loading }) {
     
-
-    const [medicines, setMedicines] = useState(initialMedicines);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
+
     const itemsPerPage = 8;
+
+    
 
     // Handle changing pages
     const handlePageClick = (pageNumber) => {
@@ -51,10 +40,15 @@ function NeedMedicine() {
         
     };
 
-    const filteredMedicines = initialMedicines.filter(medicine =>
-        medicine.name.toLowerCase().split(' ').some(word => word.startsWith(searchTerm))
-        // The above line splits the medicine name into words and checks if any word starts with the search term
+
+   
+
+    const filteredMedicines = medicines.filter(medicine =>
+        medicine.name?.toLowerCase().split(' ').some(word => word.startsWith(searchTerm))
     );
+
+
+    
 
     
 
@@ -62,17 +56,11 @@ function NeedMedicine() {
     // Pagination logic
     const pageCount = Math.ceil(filteredMedicines.length / itemsPerPage);
 
-    console.log("page count is ", pageCount);
     const indexOfLastItem = currentPage * itemsPerPage;
-    console.log("last Term index is ", indexOfLastItem);
 
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-    console.log("First term index is ", indexOfFirstItem)
-    const currentItems = filteredMedicines.slice(indexOfFirstItem, indexOfLastItem);
-
-    console.log("current Items are", currentItems);
-
+     const currentItems = filteredMedicines.slice(indexOfFirstItem, indexOfLastItem);
     const renderPageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1).map(number => (
         <button
             key={number}
@@ -104,12 +92,16 @@ function NeedMedicine() {
                 className="w-full p-2 rounded-md mb-4 text-black"
             />
 
-            {currentItems.length>0 ?( 
+            {medicines.length>0 ?( 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-[100%] ">
-                {currentItems.map((medicine) => (
-                    <Link to={`/dashboard/medicine-details/${medicine.id}`}  key={medicine.id} className="bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 transition duration-300 ease-in-out cursor-pointer animate-fade-in-up">
-                        <img src={medicine.imageUrl} alt={medicine.name} className="w-full h-20 object-cover rounded-md mb-3"/>
-                        <h3 className="text-lg font-semibold">{medicine.name}</h3>
+                {medicines.map((medicine) => (
+                    <Link to={`/dashboard/medicine-details/${medicine._id}`}  key={medicine.id} className="bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 transition duration-300 ease-in-out cursor-pointer animate-fade-in-up">
+                        <img src={medicine.image} alt={medicine.name} className="w-full h-20 object-cover rounded-md mb-3"/>
+                       
+                        {/* <img src={medicine.imageUrl || image1} alt={medicine.name} className="w-full h-20 object-cover rounded-md mb-3" /> */}
+
+                       
+                        <h3 className="text-lg font-semibold">{medicine.medicineName}</h3>
                         <p className="text-sm mb-1 h-4">Description:{truncateText(medicine.description, 4)}</p>
 
                         <div  className='flex justify-end mt-3'>

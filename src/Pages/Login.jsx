@@ -6,28 +6,18 @@ import { useState } from 'react';
 import Popup from '../components/Popup';
 import axios from 'axios';
 
-
-
-
 function Login() {
-
     const navigate = useNavigate(); 
     const [showPopup, setShowPopup] = useState(false);
-
     const [formData, setFormData] = useState({
         email: '',
         password: ''
        
       });
-
-
       const closePopup = () => {
         setShowPopup(false); // Close popup
         navigate("/dashboard/dashboardd");
-
-    
       };
-    
       const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevFormData) => ({
@@ -35,8 +25,6 @@ function Login() {
           [name]: value
         }));
       };
-
-
     
 const handleLogin = async (e)=>{
     e.preventDefault();
@@ -46,30 +34,21 @@ const handleLogin = async (e)=>{
         email:formData.email,
         password:formData.password
     })
-  
-
     if (response.data.authToken) {
         localStorage.setItem('authToken', response.data.authToken);
         setShowPopup(true);
       }
-    setFormData({
-        
+    setFormData({  
         email: '',
         password: '',
         })
-
-
-
 }catch(error){
     console.log(error);
 }   
 }
    const handleNavigateToSignUp = () => {
-
-
         navigate('/signup'); // Navigate to the signup route when the signup button is clicked
     };
-
     return (
         <div className="flex h-screen items-center justify-center bg-black">
             <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-xl">

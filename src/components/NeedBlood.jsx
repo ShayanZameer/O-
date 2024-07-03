@@ -1,8 +1,3 @@
-
-
-
-
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhoneIcon } from '@heroicons/react/24/outline';  // Importing a phone icon for contact

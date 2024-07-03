@@ -29,8 +29,6 @@ function Donate() {
 
   const closePopup = () => {
     setShowPopup(false); // Close popup
-    // Optionally, reset any state related to the popup
-    navigate('/login'); // Navigate to Login screen after closing popup
 
   };
 
@@ -61,8 +59,6 @@ function Donate() {
     }
     );
 
-
-      
   
       // Reset form data if signup was successful
       setFormData({
@@ -74,7 +70,7 @@ function Donate() {
         phoneNumber: '',
         status: 'pending'})
 
-        setShowPopup(true); // Show popup on successful signup
+        setShowPopup(true); 
 
     } catch (error) {
       console.error("There was an error!", error);

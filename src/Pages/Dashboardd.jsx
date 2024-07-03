@@ -26,7 +26,4 @@ function Dashboardd() {
                 </div>
             </div>
         </div>
-    );
-}
-
-export default Dashboardd;
+    );}export default Dashboardd;
