@@ -8,7 +8,6 @@ import { FaCartPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 import Cart from './Cart';
-
 function DashboardHeader() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
@@ -19,15 +18,15 @@ function DashboardHeader() {
     const toggleNotifications = () => setIsNotificationsOpen(!isNotificationsOpen);
 
 
-    const onCLick=()=>{
+    const onCLick = () => {
         navigate(Cart);
     }
 
-    
 
-    
 
-    
+
+
+
 
     return (
         <header className="bg-gray-900 px-5 py-4 flex justify-between items-center shadow-md">
@@ -41,9 +40,9 @@ function DashboardHeader() {
                 <div className="relative">
                     <button
                         className="p-3 rounded-full text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        
+
                     >
-                        <FaCartPlus onClick={() => navigate('/dashboard/cart')}  className="h-6 w-6" />
+                        <FaCartPlus onClick={() => navigate('/dashboard/cart')} className="h-6 w-6" />
                     </button>
                 </div>
 
@@ -81,7 +80,7 @@ function DashboardHeader() {
                 </div>
             </div>
 
-            
+
         </header>
     );
 }
