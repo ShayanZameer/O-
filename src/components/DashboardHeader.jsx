@@ -70,13 +70,7 @@ function DashboardHeader() {
                         <UserCircleIcon className="h-8 w-8" />
                         <span className="hidden md:block text-sm">John Doe</span> {/* Show name on medium and larger screens */}
                     </button>
-                    {isDropdownOpen && (
-                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-50">
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</a>
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign Out</a>
-                        </div>
-                    )}
+
                 </div>
             </div>
 

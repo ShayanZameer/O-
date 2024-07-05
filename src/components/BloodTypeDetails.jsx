@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { MapPinIcon } from '@heroicons/react/24/outline'; // Importing a map pin icon for location
+import { MapPinIcon } from '@heroicons/react/24/outline';
 
 import Map from './Map';
 
