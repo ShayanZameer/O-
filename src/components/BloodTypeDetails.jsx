@@ -2,12 +2,14 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { MapPinIcon } from '@heroicons/react/24/outline'; // Importing a map pin icon for location
 
+import Map from './Map';
+
 
 
 function BloodTypeDetails() {
 
 
-    
+
     const { type } = useParams();
 
 
@@ -19,9 +21,9 @@ function BloodTypeDetails() {
             urgent: true,
             lastDonation: 'June 15, 2024',
             locations: [
-                { place: 'Location A', units: 5 },
-                { place: 'Location B', units: 5 },
-                { place: 'Location C', units: 2 }
+                { place: 'PIMS Hospital', units: 5 },
+                { place: 'Shifa International Hospital', units: 5 },
+                { place: 'Holy Family Hospital', units: 2 }
             ]
         },
         {
@@ -30,8 +32,8 @@ function BloodTypeDetails() {
             urgent: false,
             lastDonation: 'May 20, 2024',
             locations: [
-                { place: 'Location D', units: 7 },
-                { place: 'Location E', units: 8 }
+                { place: 'Aga Khan University Hospital', units: 7 },
+                { place: 'Liaquat National Hospital', units: 8 }
             ]
         },
         {
@@ -40,7 +42,7 @@ function BloodTypeDetails() {
             urgent: false,
             lastDonation: 'July 01, 2024',
             locations: [
-                { place: 'Location F', units: 10 }
+                { place: 'Jinnah Postgraduate Medical Centre', units: 10 }
             ]
         },
         {
@@ -49,8 +51,8 @@ function BloodTypeDetails() {
             urgent: true,
             lastDonation: 'June 10, 2024',
             locations: [
-                { place: 'Location G', units: 4 },
-                { place: 'Location H', units: 4 }
+                { place: 'Civil Hospital Karachi', units: 4 },
+                { place: 'Indus Hospital', units: 4 }
             ]
         },
         {
@@ -59,8 +61,8 @@ function BloodTypeDetails() {
             urgent: true,
             lastDonation: 'April 25, 2024',
             locations: [
-                { place: 'Location I', units: 3 },
-                { place: 'Location J', units: 4 }
+                { place: 'Combined Military Hospital', units: 3 },
+                { place: 'Lady Reading Hospital', units: 4 }
             ]
         },
         {
@@ -69,7 +71,7 @@ function BloodTypeDetails() {
             urgent: true,
             lastDonation: 'March 30, 2024',
             locations: [
-                { place: 'Location K', units: 6 }
+                { place: 'Fatima Jinnah Medical University', units: 6 }
             ]
         },
         {
@@ -78,8 +80,8 @@ function BloodTypeDetails() {
             urgent: false,
             lastDonation: 'July 15, 2024',
             locations: [
-                { place: 'Location L', units: 5 },
-                { place: 'Location M', units: 4 }
+                { place: 'Nishtar Hospital', units: 5 },
+                { place: 'Bahawal Victoria Hospital', units: 4 }
             ]
         },
         {
@@ -88,68 +90,70 @@ function BloodTypeDetails() {
             urgent: true,
             lastDonation: 'August 05, 2024',
             locations: [
-                { place: 'Location N', units: 2 },
-                { place: 'Location O', units: 2 }
+                { place: 'Mayo Hospital', units: 2 },
+                { place: 'Punjab Institute of Cardiology', units: 2 }
             ]
         }
     ];
+
 
     const blood = bloodTypes.find(b => b.type === type);
 
 
     return (
-        
+
 
 
         <div className="p-6 bg-black max-h-[605px] ml-8 text-white flex flex-col items-center w-[100%]">
-        <h2 className="text-4xl font-bold mb-8 text-center animate-pulse">Blood Type: {blood.type}</h2>
-        <div className="bg-gray-800 p-8 rounded-lg max-h-[85%] shadow-lg max-w-4xl w-full">
-            <div className="flex justify-between mb-6 animate-fade-in-up">
-                <div>
-                    <p className="text-xl font-semibold">Units Available:</p>
-                    <p className="text-3xl">{blood.availability}</p>
+            <h2 className="text-4xl font-bold mb-8 text-center animate-pulse">Blood Type: {blood.type}</h2>
+            <div className="bg-gray-800 p-8 rounded-lg max-h-[85%] shadow-lg max-w-4xl w-full">
+                <div className="flex justify-between mb-6 animate-fade-in-up">
+                    <div>
+                        <p className="text-xl font-semibold">Units Available:</p>
+                        <p className="text-3xl">{blood.availability}</p>
+                    </div>
+                    <div>
+                        <p className="text-xl font-semibold">Last Donation:</p>
+                        <p className="text-3xl">{blood.lastDonation}</p>
+                    </div>
                 </div>
-                <div>
-                    <p className="text-xl font-semibold">Last Donation:</p>
-                    <p className="text-3xl">{blood.lastDonation}</p>
-                </div>
-            </div>
-            <h4 className="text-2xl font-medium mt-4 mb-4">Locations:</h4>
+                <h4 className="text-2xl font-medium mt-4 mb-4">Locations:</h4>
 
-            <div className=' flex justify-between'>
+                <div className=' flex justify-between'>
 
 
-            
-            <ul className="list-none mb-6 animate-fade-in-up">
-                {blood.locations.map((location, idx) => (
-                    <li key={idx} className="mb-4">
-                        <div className="p-4 bg-gray-700 w-[400px] rounded-lg transition-transform transform hover:scale-105">
-                            <div className="flex items-center ">
-                                <MapPinIcon className="h-6 w-6 text-yellow-400 mr-3"/>
-                                <div>
-                                    <p className="text-lg font-semibold">{location.place}</p>
-                                    <p>Units: {location.units}</p>
+
+                    <ul className="list-none mb-6 animate-fade-in-up">
+                        {blood.locations.map((location, idx) => (
+                            <li key={idx} className="mb-4">
+                                <div className="p-4 bg-gray-700 w-[400px] rounded-lg transition-transform transform hover:scale-105">
+                                    <div className="flex items-center ">
+                                        <MapPinIcon className="h-6 w-6 text-yellow-400 mr-3" />
+                                        <div>
+                                            <p className="text-lg font-semibold">{location.place}</p>
+                                            <p>Units: {location.units}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+                            </li>
+                        ))}
+                    </ul>
 
-                              {/* Placeholder for the map */}
-                              <div className="flex items-center justify-center h-full">
-                    <p className="text-lg font-semibold text-gray-300">Map will be displayed here</p>
+                    {/* Placeholder for the map */}
+                    <div className="flex items-center justify-center h-full w-[200px] mr-5">
+
+                        <Map />
+                    </div>
                 </div>
-            </div>
-            {/* <div className="flex justify-center">
+                {/* <div className="flex justify-center">
                 <button className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300">Contact</button>
             </div> */}
+            </div>
+
+
+
+
         </div>
-        
-              
-            
-        
-    </div>
     );
 }
 
